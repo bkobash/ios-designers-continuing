@@ -54,6 +54,39 @@
                                         <rect key="frame" x="337" y="14" width="27" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" id="5b4-aq-IF9" userLabel="Photo1 View">
+                                        <rect key="frame" x="16" y="1768" width="343" height="217"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoroom" id="pch-tY-848" userLabel="Photo1 Image View">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="317"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" id="Lbs-EZ-baq" userLabel="Photo2 View">
+                                        <rect key="frame" x="16" y="2475" width="343" height="217"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoroom2" id="ptb-xi-3og" userLabel="Photo2 Image View">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="317"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" id="gXR-Hu-ddS" userLabel="Photo3 View">
+                                        <rect key="frame" x="16" y="2930" width="343" height="217"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoroom3" id="V6J-Uf-DZ5" userLabel="Photo3 Image View">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="317"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -64,6 +97,12 @@
                     <connections>
                         <outlet property="mainScrollView" destination="kSj-Ta-X7P" id="YHq-fL-Akz"/>
                         <outlet property="pageImageView" destination="q5z-R1-UCw" id="gKJ-yN-MAU"/>
+                        <outlet property="photo1ImageView" destination="pch-tY-848" id="JEL-Dx-sD2"/>
+                        <outlet property="photo1View" destination="5b4-aq-IF9" id="Lzq-3f-gVV"/>
+                        <outlet property="photo2ImageView" destination="ptb-xi-3og" id="OFY-u3-Ibi"/>
+                        <outlet property="photo2View" destination="Lbs-EZ-baq" id="Nre-WZ-QEz"/>
+                        <outlet property="photo3ImageView" destination="V6J-Uf-DZ5" id="g70-oA-SDn"/>
+                        <outlet property="photo3View" destination="gXR-Hu-ddS" id="uX9-Vy-Zcb"/>
                         <outlet property="photoBlurredImageView" destination="NWr-1Z-n77" id="fZ4-0g-d41"/>
                         <outlet property="photoImageView" destination="amu-OQ-Cnv" id="z1v-kV-It9"/>
                         <outlet property="photoView" destination="4rq-BR-2bt" id="2AB-96-ToX"/>
@@ -71,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.5" y="386.5"/>
+            <point key="canvasLocation" x="133.5" y="386"/>
         </scene>
     </scenes>
     <resources>
@@ -80,6 +119,9 @@
         <image name="page" width="375" height="3697"/>
         <image name="photo" width="375" height="320"/>
         <image name="photoblurred" width="375" height="320"/>
+        <image name="photoroom" width="343" height="216"/>
+        <image name="photoroom2" width="343" height="216"/>
+        <image name="photoroom3" width="343" height="216"/>
         <image name="price" width="58" height="33"/>
     </resources>
 </document>

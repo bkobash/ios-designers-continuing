@@ -15,7 +15,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var photoView: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var photoBlurredImageView: UIImageView!
-    
+    @IBOutlet weak var photo1View: UIView!
+    @IBOutlet weak var photo1ImageView: UIImageView!
+    @IBOutlet weak var photo2View: UIView!
+    @IBOutlet weak var photo2ImageView: UIImageView!
+    @IBOutlet weak var photo3View: UIView!
+    @IBOutlet weak var photo3ImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +56,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         // set up the parallax Y-position
         var photoImageY: Float = -24;
-        let photoImageParallaxY: Float = convertValue(scrollY, r1Min: 0, r1Max: 568, r2Min: photoImageY, r2Max: 300);
+        let photoImageParallaxY: Float = convertValue(scrollY, r1Min: 0, r1Max: 667, r2Min: photoImageY, r2Max: 300);
         photoImageY = max(photoImageY, photoImageParallaxY);
         
         // "blur" the image as the user scrolls up
@@ -62,6 +67,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         photoImageView.frame = CGRect(x: 0, y: CGFloat(photoImageY), width: photoWidth, height: photoImageHeight);
         photoBlurredImageView.frame = CGRect(x: 0, y: CGFloat(photoImageY), width: photoWidth, height: photoImageHeight);
         photoBlurredImageView.alpha = CGFloat(photoBlurredAlpha);
+        
+        // parallax a few more images
+        // scrollDistance is the scrollView's height (604) minus the image container height (216)
+        let scrollDistance: CGFloat = 387;
+        let photo1ImageParallaxY: Float = convertValue(scrollY, r1Min: Float(photo1View.frame.origin.y - scrollDistance), r1Max: Float(photo1View.frame.origin.y), r2Min: -100, r2Max: 0);
+        let photo2ImageParallaxY: Float = convertValue(scrollY, r1Min: Float(photo2View.frame.origin.y - scrollDistance), r1Max: Float(photo2View.frame.origin.y), r2Min: -100, r2Max: 0);
+        let photo3ImageParallaxY: Float = convertValue(scrollY, r1Min: Float(photo3View.frame.origin.y - scrollDistance), r1Max: Float(photo3View.frame.origin.y), r2Min: -100, r2Max: 0);
+        photo1ImageView.frame = CGRect(x: 0, y: CGFloat(photo1ImageParallaxY), width: 343, height: 316);
+        photo2ImageView.frame = CGRect(x: 0, y: CGFloat(photo2ImageParallaxY), width: 343, height: 316);
+        photo3ImageView.frame = CGRect(x: 0, y: CGFloat(photo3ImageParallaxY), width: 343, height: 316);
+        
+        
     }
 
 }
