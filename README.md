@@ -1,4 +1,4 @@
-# iOS for Designers - Continuing Education
+# iOS Continuing Ed for Designers
 
 Trying to keep up on Swift with CodePath.
 
