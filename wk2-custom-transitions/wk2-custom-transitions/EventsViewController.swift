@@ -32,15 +32,19 @@ struct CalendarDay {
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     @IBOutlet weak var eventTableView: UITableView!
+    @IBOutlet weak var fabImageView: UIImageView!
     
     var monthBannerIndexPath: NSIndexPath!
     var monthBannerTopConstraint: NSLayoutConstraint!
     
     var selectedRowIndexPath: NSIndexPath!
     
+    var calendarTransition: CalendarTransition!
+    
     @IBOutlet weak var headerDecLabel: UILabel!
     @IBOutlet weak var headerJanLabel: UILabel!
     @IBOutlet weak var headerJanTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var fabBottomConstraint: NSLayoutConstraint!
     
     let events: [CalendarDay] = [
         CalendarDay(date: "17", weekday: "Thu", rows: [
@@ -97,6 +101,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         eventTableView.dataSource = self
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -107,9 +112,29 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "showDetail") {
+            
             let eventDetailVC = segue.destinationViewController as! EventDetailViewController
+            
             let eventRowData = events[selectedRowIndexPath.section].rows[selectedRowIndexPath.row]
+            var eventCellRect = eventTableView.rectForRowAtIndexPath(selectedRowIndexPath);
+            eventCellRect = CGRect(x: 72, y: eventCellRect.origin.y - eventTableView.contentOffset.y + 76, width: eventCellRect.size.width - 16, height: eventCellRect.size.height - 24)
+            
             eventDetailVC.eventRowData = eventRowData
+            eventDetailVC.eventRect = eventCellRect
+            eventDetailVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+            
+            calendarTransition = CalendarTransition()
+            calendarTransition.eventRect = eventCellRect
+            calendarTransition.duration = 0.4
+            eventDetailVC.transitioningDelegate = calendarTransition
+            
+            fabBottomConstraint.constant = -72
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.view.layoutIfNeeded()
+                })
+            delay(0.4, closure: { () -> () in
+                self.fabBottomConstraint.constant = 0
+            })
         }
     }
     

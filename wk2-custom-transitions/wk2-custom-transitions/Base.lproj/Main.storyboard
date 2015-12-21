@@ -337,6 +337,8 @@
                     </view>
                     <connections>
                         <outlet property="eventTableView" destination="ZdV-vE-cNe" id="Huf-4j-rhf"/>
+                        <outlet property="fabBottomConstraint" destination="1wY-Dg-wnH" id="qcY-S7-2JE"/>
+                        <outlet property="fabImageView" destination="u0a-l9-hZq" id="yug-SJ-LCW"/>
                         <outlet property="headerDecLabel" destination="SDh-Z6-3Od" id="a7j-EV-pvg"/>
                         <outlet property="headerJanLabel" destination="72x-MH-ATR" id="Iiz-4b-WFt"/>
                         <outlet property="headerJanTopConstraint" destination="2F8-Mt-wF1" id="buP-l1-tQH"/>
@@ -355,25 +357,37 @@
                         <viewControllerLayoutGuide type="top" id="hLS-ZY-aKM"/>
                         <viewControllerLayoutGuide type="bottom" id="Q4N-A5-jop"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VXu-SW-wvg">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="VXu-SW-wvg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic-coffee" translatesAutoresizingMaskIntoConstraints="NO" id="gMP-ks-0wg" userLabel="Banner Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic-coffee" translatesAutoresizingMaskIntoConstraints="NO" id="gMP-ks-0wg" userLabel="Banner Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="227"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="227" id="WpC-RO-P6z"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YL-XK-hjv">
-                                <rect key="frame" x="24" y="35" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YL-XK-hjv">
+                                <rect key="frame" x="11" y="32" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Zti-sr-NrY"/>
+                                    <constraint firstAttribute="width" constant="36" id="imy-sJ-Orp"/>
+                                </constraints>
+                                <state key="normal" image="gcal-close"/>
                                 <connections>
                                     <action selector="onCloseTap:" destination="wA0-ra-8rl" eventType="touchUpInside" id="Wbm-2x-IOq"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gcal-details" translatesAutoresizingMaskIntoConstraints="NO" id="Aem-Iq-SuO">
+                                <rect key="frame" x="0.0" y="260" width="320" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="LVD-qL-hJh"/>
+                                    <constraint firstAttribute="width" constant="320" id="vyC-e7-zz6"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojd-Mm-Pjt">
-                                <rect key="frame" x="72" y="170" width="516" height="29"/>
+                                <rect key="frame" x="72" y="180" width="516" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Jyp-qZ-J3b"/>
                                 </constraints>
@@ -381,19 +395,30 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gcal-fab-edit" translatesAutoresizingMaskIntoConstraints="NO" id="nzF-xR-g5z">
+                                <rect key="frame" x="0.0" y="196" width="60" height="60"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6YL-XK-hjv" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" constant="11" id="NKh-FH-xYn"/>
                             <constraint firstAttribute="trailing" secondItem="Ojd-Mm-Pjt" secondAttribute="trailing" constant="12" id="V54-Jx-8mq"/>
                             <constraint firstAttribute="trailing" secondItem="gMP-ks-0wg" secondAttribute="trailing" id="X3J-xE-INw"/>
                             <constraint firstItem="Ojd-Mm-Pjt" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" constant="72" id="aKm-XW-9zg"/>
+                            <constraint firstItem="Aem-Iq-SuO" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="260" id="cew-Br-ZjG"/>
+                            <constraint firstItem="6YL-XK-hjv" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="32" id="jN8-SJ-6nl"/>
+                            <constraint firstItem="Aem-Iq-SuO" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" id="lfT-mW-5D3"/>
                             <constraint firstAttribute="topMargin" secondItem="gMP-ks-0wg" secondAttribute="top" id="nnJ-Rc-U1G"/>
-                            <constraint firstItem="Ojd-Mm-Pjt" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="170" id="o1U-0U-Y5c"/>
+                            <constraint firstItem="Ojd-Mm-Pjt" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="180" id="o1U-0U-Y5c"/>
                             <constraint firstItem="gMP-ks-0wg" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" id="vtg-Yz-CbO"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerImageHeightConstraint" destination="WpC-RO-P6z" id="BZv-sV-btg"/>
+                        <outlet property="bannerImageLeadingConstraint" destination="vtg-Yz-CbO" id="mRm-hs-Y92"/>
+                        <outlet property="bannerImageTrailingConstraint" destination="X3J-xE-INw" id="C7o-Oi-npn"/>
                         <outlet property="bannerImageView" destination="gMP-ks-0wg" id="bLs-Vu-sEJ"/>
+                        <outlet property="closeButton" destination="6YL-XK-hjv" id="kp4-ZM-Zvh"/>
                         <outlet property="titleLabel" destination="Ojd-Mm-Pjt" id="qVb-OK-qTt"/>
                     </connections>
                 </viewController>
@@ -404,7 +429,10 @@
     </scenes>
     <resources>
         <image name="banner-jan" width="375" height="276"/>
+        <image name="gcal-close" width="36" height="36"/>
+        <image name="gcal-details" width="320" height="240"/>
         <image name="gcal-fab" width="88" height="88"/>
+        <image name="gcal-fab-edit" width="60" height="60"/>
         <image name="gcal-header" width="113" height="76"/>
         <image name="gcal-header-shadow" width="375" height="12"/>
         <image name="pic-coffee" width="375" height="228"/>

@@ -21,6 +21,9 @@
 		1D155E9C1C277DB200133212 /* MonthBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155E9B1C277DB200133212 /* MonthBannerTableViewCell.swift */; };
 		1D155E9E1C27944600133212 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155E9D1C27944600133212 /* Common.swift */; };
 		1D155EA61C27E00200133212 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EA51C27E00200133212 /* EventDetailViewController.swift */; };
+		1D155EAD1C27E87800133212 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EAB1C27E87800133212 /* BaseTransition.swift */; };
+		1D155EAE1C27E87800133212 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EAC1C27E87800133212 /* FadeTransition.swift */; };
+		1D155EB01C27E8A600133212 /* CalendarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EAF1C27E8A600133212 /* CalendarTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		1D155E9B1C277DB200133212 /* MonthBannerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthBannerTableViewCell.swift; sourceTree = "<group>"; };
 		1D155E9D1C27944600133212 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		1D155EA51C27E00200133212 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		1D155EAB1C27E87800133212 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
+		1D155EAC1C27E87800133212 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
+		1D155EAF1C27E8A600133212 /* CalendarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,9 @@
 		1D155E621C26ACC000133212 /* wk2-custom-transitions */ = {
 			isa = PBXGroup;
 			children = (
+				1D155EAB1C27E87800133212 /* BaseTransition.swift */,
+				1D155EAF1C27E8A600133212 /* CalendarTransition.swift */,
+				1D155EAC1C27E87800133212 /* FadeTransition.swift */,
 				1D155E631C26ACC000133212 /* AppDelegate.swift */,
 				1D155E671C26ACC000133212 /* Main.storyboard */,
 				1D155E6A1C26ACC000133212 /* Assets.xcassets */,
@@ -281,11 +290,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D155E9E1C27944600133212 /* Common.swift in Sources */,
+				1D155EAD1C27E87800133212 /* BaseTransition.swift in Sources */,
 				1D155E981C277D9F00133212 /* BasicEventTableViewCell.swift in Sources */,
 				1D155E641C26ACC000133212 /* AppDelegate.swift in Sources */,
 				1D155EA61C27E00200133212 /* EventDetailViewController.swift in Sources */,
 				1D155E941C26C2B300133212 /* HeaderTableViewCell.swift in Sources */,
+				1D155EAE1C27E87800133212 /* FadeTransition.swift in Sources */,
 				1D155E9C1C277DB200133212 /* MonthBannerTableViewCell.swift in Sources */,
+				1D155EB01C27E8A600133212 /* CalendarTransition.swift in Sources */,
 				1D155E961C277B4F00133212 /* WeekSummaryTableViewCell.swift in Sources */,
 				1D155E9A1C277DA700133212 /* RichEventTableViewCell.swift in Sources */,
 				1D155E921C26B2EF00133212 /* EventsViewController.swift in Sources */,
