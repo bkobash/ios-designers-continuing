@@ -24,6 +24,8 @@
 		1D155EAD1C27E87800133212 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EAB1C27E87800133212 /* BaseTransition.swift */; };
 		1D155EAE1C27E87800133212 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EAC1C27E87800133212 /* FadeTransition.swift */; };
 		1D155EB01C27E8A600133212 /* CalendarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D155EAF1C27E8A600133212 /* CalendarTransition.swift */; };
+		1D28588E1C2806520007D191 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D28588C1C2805690007D191 /* Roboto-Regular.ttf */; };
+		1D28588F1C2806520007D191 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D28588D1C2805750007D191 /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		1D155EAB1C27E87800133212 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
 		1D155EAC1C27E87800133212 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		1D155EAF1C27E8A600133212 /* CalendarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTransition.swift; sourceTree = "<group>"; };
+		1D28588C1C2805690007D191 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		1D28588D1C2805750007D191 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		1D155E621C26ACC000133212 /* wk2-custom-transitions */ = {
 			isa = PBXGroup;
 			children = (
+				1D28588C1C2805690007D191 /* Roboto-Regular.ttf */,
+				1D28588D1C2805750007D191 /* Roboto-Bold.ttf */,
 				1D155EAB1C27E87800133212 /* BaseTransition.swift */,
 				1D155EAF1C27E8A600133212 /* CalendarTransition.swift */,
 				1D155EAC1C27E87800133212 /* FadeTransition.swift */,
@@ -262,6 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D28588E1C2806520007D191 /* Roboto-Regular.ttf in Resources */,
+				1D28588F1C2806520007D191 /* Roboto-Bold.ttf in Resources */,
 				1D155E6E1C26ACC000133212 /* LaunchScreen.storyboard in Resources */,
 				1D155E6B1C26ACC000133212 /* Assets.xcassets in Resources */,
 				1D155E691C26ACC000133212 /* Main.storyboard in Resources */,
@@ -527,6 +535,7 @@
 				1D155E8A1C26ACC000133212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D155E8B1C26ACC000133212 /* Build configuration list for PBXNativeTarget "wk2-custom-transitionsTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +544,7 @@
 				1D155E8D1C26ACC000133212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D155E8E1C26ACC000133212 /* Build configuration list for PBXNativeTarget "wk2-custom-transitionsUITests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +553,7 @@
 				1D155E901C26ACC000133212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
