@@ -36,6 +36,8 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var monthBannerIndexPath: NSIndexPath!
     var monthBannerTopConstraint: NSLayoutConstraint!
     
+    var selectedRowIndexPath: NSIndexPath!
+    
     @IBOutlet weak var headerDecLabel: UILabel!
     @IBOutlet weak var headerJanLabel: UILabel!
     @IBOutlet weak var headerJanTopConstraint: NSLayoutConstraint!
@@ -93,7 +95,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,16 +102,18 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "showDetail") {
+            let eventDetailVC = segue.destinationViewController as! EventDetailViewController
+            let eventRowData = events[selectedRowIndexPath.section].rows[selectedRowIndexPath.row]
+            eventDetailVC.eventRowData = eventRowData
+        }
     }
-    */
+    
+    // MARK: - Tables
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return events.count
@@ -130,6 +133,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let cell: BasicEventTableViewCell = tableView.dequeueReusableCellWithIdentifier("BasicEventCell") as! BasicEventTableViewCell
                 cell.titleLabel.text = rowData.summary
                 cell.eventBubbleView.layer.cornerRadius = 2
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             
             case RowType.RichEvent:
@@ -151,13 +155,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 cell.pictureImageView.image = rowData.image
                 cell.eventBubbleView.layer.cornerRadius = 2
-                
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             
             case RowType.WeekSummary:
                 
                 let cell: WeekSummaryTableViewCell = tableView.dequeueReusableCellWithIdentifier("WeekSummaryCell") as! WeekSummaryTableViewCell
                 cell.summaryLabel.text = rowData.summary
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             
             case RowType.MonthBanner:
@@ -167,7 +172,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 monthBannerIndexPath = indexPath
                 monthBannerTopConstraint = cell.bannerImageTopConstraint
                 cell.bannerLabel.text = rowData.summary
-                
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             
         }
@@ -225,6 +230,19 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let rowData: CalendarRow = events[indexPath.section].rows[indexPath.row];
+        if (rowData.type == RowType.BasicEvent || rowData.type == RowType.RichEvent) {
+            selectedRowIndexPath = indexPath
+            dispatch_async(dispatch_get_main_queue(),{
+                self.performSegueWithIdentifier("showDetail", sender: self)
+            })
+        }
+    }
+    
+    // MARK: - Scrolling
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
         let scrollY: Float = Float(scrollView.contentOffset.y);
@@ -240,7 +258,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             // update the header when the month banner
             // moves up to the top
-            headerDecLabel.alpha = 1 - CGFloat( scrollY - monthBannerY) * 0.02
+            headerDecLabel.alpha = 1 - CGFloat(scrollY - monthBannerY) * 0.02
             headerJanLabel.alpha = CGFloat(scrollY - monthBannerY) * 0.02
             headerJanTopConstraint.constant = max(CGFloat(monthBannerY - scrollY) + 91, 37)
 
