@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum RowType {
     case BasicEvent
     case RichEvent
@@ -99,6 +98,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
+        eventTableView.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 0, right: 0)
     }
 
 
@@ -210,36 +210,37 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case RowType.BasicEvent:
             rowHeight = 40
             if (indexPath.row == events[indexPath.section].rows.count - 1) {
-                rowHeight += 24
+                //rowHeight += 24
             }
             return rowHeight
         case RowType.RichEvent:
             rowHeight = 112
             if (indexPath.row == events[indexPath.section].rows.count - 1) {
-                rowHeight += 24
+                //rowHeight += 24
             }
             return rowHeight
         case RowType.WeekSummary:
-            return 36
+            return 18
         case RowType.MonthBanner:
-            return 172
+            return 148
         }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 0.0001
+        return 0.001
         
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.0001
+        return 24
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView: HeaderTableViewCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! HeaderTableViewCell
         
+        headerView.backgroundColor = UIColor.clearColor()
         headerView.dateLabel.text = events[section].date
         headerView.weekdayLabel.text = events[section].weekday
         
@@ -250,7 +251,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         let footerView: UIView = UIView()
-        footerView.backgroundColor = UIColor.whiteColor()
+        footerView.backgroundColor = UIColor.clearColor()
         return footerView
         
     }
