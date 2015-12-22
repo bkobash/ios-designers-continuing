@@ -205,25 +205,25 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var rowHeight: CGFloat;
-        switch (events[indexPath.section].rows[indexPath.row].type) {
-        case RowType.BasicEvent:
-            rowHeight = 40
-            if (indexPath.row == events[indexPath.section].rows.count - 1) {
-                //rowHeight += 24
-            }
-            return rowHeight
-        case RowType.RichEvent:
-            rowHeight = 112
-            if (indexPath.row == events[indexPath.section].rows.count - 1) {
-                //rowHeight += 24
-            }
-            return rowHeight
-        case RowType.WeekSummary:
-            return 18
-        case RowType.MonthBanner:
-            return 148
+        
+        let rowData: CalendarRow = events[indexPath.section].rows[indexPath.row];
+        
+        switch (rowData.type) {
+
+            case RowType.BasicEvent:
+                return 40
+            
+            case RowType.RichEvent:
+                return 112
+            
+            case RowType.WeekSummary:
+                return 18
+            
+            case RowType.MonthBanner:
+                return 148
+        
         }
+        
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
