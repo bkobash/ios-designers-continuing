@@ -19,7 +19,6 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var bannerImageTrailingConstraint: NSLayoutConstraint!
     
     var eventRowData: CalendarRow!
-    var eventRect: CGRect!
     
     override func viewDidLoad() {
         super.viewDidLoad()

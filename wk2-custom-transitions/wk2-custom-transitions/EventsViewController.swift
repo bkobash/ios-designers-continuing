@@ -33,17 +33,17 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var eventTableView: UITableView!
     @IBOutlet weak var fabImageView: UIImageView!
     
+    @IBOutlet weak var headerDecLabel: UILabel!
+    @IBOutlet weak var headerJanLabel: UILabel!
+    @IBOutlet weak var headerJanTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var fabBottomConstraint: NSLayoutConstraint!
+    
     var monthBannerIndexPath: NSIndexPath!
     var monthBannerTopConstraint: NSLayoutConstraint!
     
     var selectedRowIndexPath: NSIndexPath!
     
     var calendarTransition: CalendarTransition!
-    
-    @IBOutlet weak var headerDecLabel: UILabel!
-    @IBOutlet weak var headerJanLabel: UILabel!
-    @IBOutlet weak var headerJanTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var fabBottomConstraint: NSLayoutConstraint!
     
     let events: [CalendarDay] = [
         CalendarDay(date: "17", weekday: "Thu", rows: [
@@ -114,18 +114,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (segue.identifier == "showDetail") {
             
             let eventDetailVC = segue.destinationViewController as! EventDetailViewController
-            
             let eventRowData = events[selectedRowIndexPath.section].rows[selectedRowIndexPath.row]
-            var eventCellRect = eventTableView.rectForRowAtIndexPath(selectedRowIndexPath);
-            eventCellRect = CGRect(x: 72, y: eventCellRect.origin.y - eventTableView.contentOffset.y + 76, width: eventCellRect.size.width - 16, height: eventCellRect.size.height - 24)
+            let eventRowRect = eventTableView.rectForRowAtIndexPath(selectedRowIndexPath);
+            let eventRect = CGRect(x: 72, y: eventRowRect.origin.y - eventTableView.contentOffset.y + 76, width: eventRowRect.size.width - 16, height: eventRowRect.size.height - 24)
+
+            calendarTransition = CalendarTransition()
+            calendarTransition.eventRect = eventRect
+            calendarTransition.duration = 0.4
             
             eventDetailVC.eventRowData = eventRowData
-            eventDetailVC.eventRect = eventCellRect
             eventDetailVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-            
-            calendarTransition = CalendarTransition()
-            calendarTransition.eventRect = eventCellRect
-            calendarTransition.duration = 0.4
             eventDetailVC.transitioningDelegate = calendarTransition
             
             fabBottomConstraint.constant = -72
@@ -193,7 +191,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             case RowType.MonthBanner:
                 
                 let cell: MonthBannerTableViewCell = tableView.dequeueReusableCellWithIdentifier("MonthBannerCell") as! MonthBannerTableViewCell
-                
                 monthBannerIndexPath = indexPath
                 monthBannerTopConstraint = cell.bannerImageTopConstraint
                 cell.bannerLabel.text = rowData.summary
