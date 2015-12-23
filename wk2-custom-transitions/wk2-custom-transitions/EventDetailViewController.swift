@@ -32,27 +32,7 @@ class EventDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        // start with a small banner image
-        bannerImageLeadingConstraint.constant = 72
-        bannerImageTrailingConstraint.constant = 16
-        bannerImageHeightConstraint.constant = 112
-        self.view.layoutIfNeeded()
-        
-        // make the banner image larger
         bannerImageView.image = eventRowData.image
-        self.bannerImageLeadingConstraint.constant = 0
-        self.bannerImageTrailingConstraint.constant = 0
-        self.bannerImageHeightConstraint.constant = 227
-        UIView.animateWithDuration(0.4) { () -> Void in
-            self.view.layoutIfNeeded()
-        }
-        
-        titleLabel.alpha = 0
-        UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            self.titleLabel.alpha = 1
-            }, completion: nil)
-        
         titleLabel.text = eventRowData.summary
     }
     
@@ -62,14 +42,6 @@ class EventDetailViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
-        bannerImageLeadingConstraint.constant = 72
-        bannerImageTrailingConstraint.constant = 16
-        bannerImageHeightConstraint.constant = 112
-        UIView.animateWithDuration(0.4) { () -> Void in
-            self.view.layoutIfNeeded()
-            self.closeButton.alpha = 0
-            self.titleLabel.alpha = 0
-        }
     }
 
     /*

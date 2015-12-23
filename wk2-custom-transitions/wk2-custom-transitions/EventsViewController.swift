@@ -116,7 +116,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let eventDetailVC = segue.destinationViewController as! EventDetailViewController
             let eventRowData = events[selectedRowIndexPath.section].rows[selectedRowIndexPath.row]
             let eventRowRect = eventTableView.rectForRowAtIndexPath(selectedRowIndexPath);
-            let eventRect = CGRect(x: 72, y: eventRowRect.origin.y - eventTableView.contentOffset.y + 76, width: eventRowRect.size.width - 16, height: eventRowRect.size.height - 24)
+            let eventRect = CGRect(x: 72, y: eventRowRect.origin.y - eventTableView.contentOffset.y + 76, width: eventRowRect.size.width - 88, height: eventRowRect.size.height - 8)
 
             calendarTransition = CalendarTransition()
             calendarTransition.eventRect = eventRect
