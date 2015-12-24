@@ -380,7 +380,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic-coffee" translatesAutoresizingMaskIntoConstraints="NO" id="gMP-ks-0wg" userLabel="Banner Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="227"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.396078431372549" green="0.43529411764705883" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="227" id="WpC-RO-P6z"/>
                                 </constraints>
@@ -423,20 +423,27 @@
                             <constraint firstAttribute="trailing" secondItem="gMP-ks-0wg" secondAttribute="trailing" id="X3J-xE-INw"/>
                             <constraint firstItem="Ojd-Mm-Pjt" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" constant="72" id="aKm-XW-9zg"/>
                             <constraint firstItem="Aem-Iq-SuO" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="260" id="cew-Br-ZjG"/>
+                            <constraint firstItem="Ojd-Mm-Pjt" firstAttribute="bottom" secondItem="gMP-ks-0wg" secondAttribute="bottom" constant="-18" id="fIT-MR-dTd"/>
                             <constraint firstItem="6YL-XK-hjv" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="32" id="jN8-SJ-6nl"/>
                             <constraint firstItem="Aem-Iq-SuO" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" id="lfT-mW-5D3"/>
                             <constraint firstAttribute="topMargin" secondItem="gMP-ks-0wg" secondAttribute="top" id="nnJ-Rc-U1G"/>
                             <constraint firstItem="Ojd-Mm-Pjt" firstAttribute="top" secondItem="VXu-SW-wvg" secondAttribute="topMargin" constant="180" id="o1U-0U-Y5c"/>
                             <constraint firstItem="gMP-ks-0wg" firstAttribute="leading" secondItem="VXu-SW-wvg" secondAttribute="leading" id="vtg-Yz-CbO"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="o1U-0U-Y5c"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="bannerImageHeightConstraint" destination="WpC-RO-P6z" id="BZv-sV-btg"/>
-                        <outlet property="bannerImageLeadingConstraint" destination="vtg-Yz-CbO" id="mRm-hs-Y92"/>
-                        <outlet property="bannerImageTrailingConstraint" destination="X3J-xE-INw" id="C7o-Oi-npn"/>
+                        <outlet property="bannerImageTopConstraint" destination="nnJ-Rc-U1G" id="2ZF-x7-mm8"/>
                         <outlet property="bannerImageView" destination="gMP-ks-0wg" id="bLs-Vu-sEJ"/>
                         <outlet property="closeButton" destination="6YL-XK-hjv" id="kp4-ZM-Zvh"/>
+                        <outlet property="editImageView" destination="nzF-xR-g5z" id="WL0-nv-TnB"/>
                         <outlet property="titleLabel" destination="Ojd-Mm-Pjt" id="qVb-OK-qTt"/>
+                        <outlet property="titleLeadingConstraint" destination="aKm-XW-9zg" id="wMC-uj-0pu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNu-Fg-Pgt" userLabel="First Responder" sceneMemberID="firstResponder"/>

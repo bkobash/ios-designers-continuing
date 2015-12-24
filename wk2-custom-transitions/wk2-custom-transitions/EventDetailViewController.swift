@@ -13,12 +13,15 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var editImageView: UIImageView!
     
+    @IBOutlet weak var bannerImageTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bannerImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bannerImageLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bannerImageTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLeadingConstraint: NSLayoutConstraint!
     
     var eventRowData: CalendarRow!
+    var eventRect: CGRect!
+    var duration: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +37,43 @@ class EventDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         bannerImageView.image = eventRowData.image
         titleLabel.text = eventRowData.summary
+        
+        bannerImageHeightConstraint.constant = eventRect.size.height + 36
+        titleLeadingConstraint.constant = 16
+        editImageView.transform = CGAffineTransformMakeScale(0, 0)
+        self.closeButton.alpha = 0
+            
+        self.view.layoutIfNeeded()
+        
+        bannerImageHeightConstraint.constant = 227
+        titleLeadingConstraint.constant = 72
+        UIView.animateWithDuration(duration) { () -> Void in
+            self.view.layoutIfNeeded()
+        }
+        UIView.animateWithDuration(0.2, delay: duration, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.editImageView.transform = CGAffineTransformMakeScale(1, 1)
+            self.closeButton.alpha = 1
+            }, completion: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+        bannerImageHeightConstraint.constant = eventRect.size.height + 36
+        titleLeadingConstraint.constant = 16
+        self.editImageView.transform = CGAffineTransformMakeScale(1, 1);
+        UIView.animateWithDuration(duration) { () -> Void in
+            self.editImageView.alpha = 0
+            self.closeButton.alpha = 0
+            self.view.layoutIfNeeded()
+            
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
 
     /*

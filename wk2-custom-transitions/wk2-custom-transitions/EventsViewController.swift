@@ -101,7 +101,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         eventTableView.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 0, right: 0)
     }
 
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -123,6 +122,8 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             calendarTransition.duration = 0.4
             
             eventDetailVC.eventRowData = eventRowData
+            eventDetailVC.eventRect = eventRect
+            eventDetailVC.duration = 0.4
             eventDetailVC.modalPresentationStyle = UIModalPresentationStyle.Custom
             eventDetailVC.transitioningDelegate = calendarTransition
             
@@ -132,6 +133,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 })
             delay(0.4, closure: { () -> () in
                 self.fabBottomConstraint.constant = 0
+                self.view.layoutIfNeeded()
             })
         }
     }
