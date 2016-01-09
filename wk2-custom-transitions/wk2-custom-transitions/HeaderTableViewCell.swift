@@ -12,6 +12,7 @@ class HeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weekdayLabel: UILabel!
+    @IBOutlet weak var dateTopConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -45,13 +45,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var calendarTransition: CalendarTransition!
     
+    //var sectionHeaderConstraints: [NSLayoutConstraint] = []
+    
     let events: [CalendarDay] = [
         CalendarDay(date: "17", weekday: "Thu", rows: [
             CalendarRow(type: .RichEvent, summary: "CodePath Meetup", time: "7 - 8 PM", location: "Founder's Den", image: UIImage(named: "pic-map"))
             ]),
         CalendarDay(date: "20", weekday: "Sun", rows: [
             CalendarRow(type: .BasicEvent, summary: "bring laptop to work", time: nil, location: nil, image: nil),
-            CalendarRow(type: .RichEvent, summary: "Lunch with Vi", time: "12 - 1 PM", location: nil, image: UIImage(named: "pic-lunch"))
+            CalendarRow(type: .RichEvent, summary: "Lunch with Vi", time: "12 - 1 PM", location: nil, image: UIImage(named: "pic-lunch")),
+            CalendarRow(type: .RichEvent, summary: "Coffee with Joe", time: "2 - 2:30 PM", location: nil, image: UIImage(named: "pic-coffee"))
             ]),
         CalendarDay(date: "24", weekday: "Thu", rows: [
             CalendarRow(type: .RichEvent, summary: "Christmas Eve", time: nil, location: nil, image: UIImage(named: "pic-xmas"))
@@ -242,6 +245,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         headerView.backgroundColor = UIColor.clearColor()
         headerView.dateLabel.text = events[section].date
         headerView.weekdayLabel.text = events[section].weekday
+        headerView.tag = 10000 + section
         
         return headerView
         
@@ -287,6 +291,30 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             headerJanLabel.alpha = CGFloat(scrollY - monthBannerY) * 0.02
             headerJanTopConstraint.constant = max(CGFloat(monthBannerY - scrollY) + 91, 37)
 
+        }
+        
+        // fix the section header positioning as cells scroll off
+        if (eventTableView.visibleCells.count > 0) {
+            
+            // only check the topmost cell
+            let cell: UITableViewCell = eventTableView.visibleCells[0]
+            
+            let cellIndexPath: NSIndexPath = eventTableView.indexPathForCell(cell)!
+            let section: Int = cellIndexPath.section
+            
+            let isLastCellInSection: Bool = cellIndexPath.row == eventTableView.numberOfRowsInSection(section) - 1
+            
+            if (isLastCellInSection && (cell.isKindOfClass(RichEventTableViewCell) || cell.isKindOfClass(BasicEventTableViewCell))) {
+                
+                // using tags to find and update the custom section view
+                // http://stackoverflow.com/questions/3746984/
+                let sectionView: HeaderTableViewCell = self.view.viewWithTag(10000 + section) as! HeaderTableViewCell
+                let scrollDelta: CGFloat = cell.frame.origin.y - CGFloat(scrollY)
+                
+                // update the top constraint for the date (in the section header)
+                // so that it slides out as the last table cell is -42pt off the screen
+                sectionView.dateTopConstraint.constant = min(scrollDelta + 45, 0)
+            }
         }
     }
 

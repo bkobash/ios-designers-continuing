@@ -260,22 +260,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vex-GQ-vqI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vex-GQ-vqI">
                                                     <rect key="frame" x="15" y="0.0" width="38" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="dhi-b0-Av3"/>
+                                                        <constraint firstAttribute="width" constant="38" id="hx0-jL-6mT"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ux-cm-4GT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ux-cm-4GT">
                                                     <rect key="frame" x="15" y="22" width="40" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="jA0-gf-Iqh"/>
+                                                        <constraint firstAttribute="height" constant="21" id="t5g-JG-spD"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vex-GQ-vqI" firstAttribute="leading" secondItem="PZr-vp-mfc" secondAttribute="leading" constant="15" id="8Vm-sp-9A3"/>
+                                                <constraint firstItem="vex-GQ-vqI" firstAttribute="top" secondItem="PZr-vp-mfc" secondAttribute="top" id="A2R-IH-oZz"/>
+                                                <constraint firstItem="5ux-cm-4GT" firstAttribute="top" secondItem="vex-GQ-vqI" secondAttribute="bottom" constant="1" id="dhb-WD-dsW"/>
+                                                <constraint firstItem="5ux-cm-4GT" firstAttribute="leading" secondItem="PZr-vp-mfc" secondAttribute="leading" constant="15" id="pIe-7R-0lq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="vex-GQ-vqI" id="dTI-jk-lxZ"/>
+                                            <outlet property="dateTopConstraint" destination="A2R-IH-oZz" id="IDY-0O-DgH"/>
                                             <outlet property="weekdayLabel" destination="5ux-cm-4GT" id="3uS-7Z-Evz"/>
                                         </connections>
                                     </tableViewCell>
