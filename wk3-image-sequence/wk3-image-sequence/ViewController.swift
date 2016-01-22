@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var introScrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
-
+    @IBOutlet weak var introPageControl: UIPageControl!
     @IBOutlet weak var pageAImageView: UIImageView!
     @IBOutlet weak var pageBImageView: UIImageView!
     
@@ -80,21 +80,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         imageView.image = imageView.animationImages?.last
         imageView.startAnimating()
     }
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        
-        pageAImageView.stopAnimating()
-        pageBImageView.stopAnimating()
-    }
+
 
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let scrollX = scrollView.contentOffset.x
         let scrollWidth = scrollView.frame.size.width
         if (scrollX >= scrollWidth) {
+            introPageControl.currentPage = 1
             startPageAnimation(pageBImageView)
+            
+            // set up the hidden page
+            pageAImageView.stopAnimating()
             pageAImageView.image = pageAImageView.animationImages?.first
+            
         } else {
+            introPageControl.currentPage = 0
             startPageAnimation(pageAImageView)
+            
+            // set up the hidden page
+            pageBImageView.stopAnimating()
             pageBImageView.image = pageBImageView.animationImages?.first
         }
     }

@@ -88,14 +88,22 @@
                                     <constraint firstAttribute="height" constant="48" id="9zr-d0-Krt"/>
                                 </constraints>
                             </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="STA-7y-GcO">
+                                <rect key="frame" x="363" y="570" width="23" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="3Cj-Fh-cLu"/>
+                                </constraints>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="STA-7y-GcO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6hd-nI-YWW"/>
                             <constraint firstItem="kUy-Sw-JGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KsP-aL-F16"/>
                             <constraint firstAttribute="bottomMargin" secondItem="tEX-KO-rLz" secondAttribute="bottom" constant="48" id="LBg-Ux-EF2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="kUy-Sw-JGF" secondAttribute="bottom" id="ReS-Cb-pyf"/>
                             <constraint firstItem="tEX-KO-rLz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vo5-sg-y9I"/>
                             <constraint firstItem="tEX-KO-rLz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WLg-VQ-Hel"/>
+                            <constraint firstItem="hZ3-PQ-Civ" firstAttribute="top" secondItem="STA-7y-GcO" secondAttribute="bottom" constant="60" id="XXs-XY-owa"/>
                             <constraint firstAttribute="trailing" secondItem="tEX-KO-rLz" secondAttribute="trailing" id="eXd-1V-CVd"/>
                             <constraint firstAttribute="trailing" secondItem="kUy-Sw-JGF" secondAttribute="trailing" id="yDt-m9-P4O"/>
                         </constraints>
@@ -104,6 +112,7 @@
                     <size key="freeformSize" width="750" height="667"/>
                     <connections>
                         <outlet property="contentView" destination="Wx9-KP-mdr" id="zpy-Bg-daU"/>
+                        <outlet property="introPageControl" destination="STA-7y-GcO" id="Vsl-nP-fEx"/>
                         <outlet property="introScrollView" destination="tEX-KO-rLz" id="nFY-Ao-4gd"/>
                         <outlet property="pageAImageView" destination="p6J-2o-Klq" id="yi4-r4-cfH"/>
                         <outlet property="pageAWidthConstraint" destination="ZpT-4k-dsJ" id="0fG-oN-qhg"/>
