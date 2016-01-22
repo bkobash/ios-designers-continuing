@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="wk3_image_sequence" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGG-or-pkk"/>
+                        <viewControllerLayoutGuide type="bottom" id="hZ3-PQ-Civ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="750" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEX-KO-rLz">
+                                <rect key="frame" x="0.0" y="0.0" width="750" height="619"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wx9-KP-mdr" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="750" height="619"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T60-b7-YIb" userLabel="PageA View">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="619"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AppointmentsAnimation_01_0" translatesAutoresizingMaskIntoConstraints="NO" id="p6J-2o-Klq">
+                                                        <rect key="frame" x="0.0" y="121" width="375" height="375"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="375" id="PRg-hv-7DY"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.48627450980392156" green="0.59607843137254901" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="p6J-2o-Klq" firstAttribute="leading" secondItem="T60-b7-YIb" secondAttribute="leading" id="Z6b-Dp-Ecw"/>
+                                                    <constraint firstItem="p6J-2o-Klq" firstAttribute="centerY" secondItem="T60-b7-YIb" secondAttribute="centerY" id="ZAi-iB-tJV"/>
+                                                    <constraint firstAttribute="width" constant="375" id="ZpT-4k-dsJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="p6J-2o-Klq" secondAttribute="trailing" id="wjc-ta-yFZ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6L-un-HBD" userLabel="PageB View">
+                                                <rect key="frame" x="375" y="0.0" width="375" height="619"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AppointmentsAnimation_02_0" translatesAutoresizingMaskIntoConstraints="NO" id="1o9-rL-dgs">
+                                                        <rect key="frame" x="0.0" y="121" width="375" height="375"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="375" id="dzX-SX-pxi"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.68235294117647061" green="0.76078431372549016" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="1o9-rL-dgs" secondAttribute="trailing" id="QAh-Vr-MPK"/>
+                                                    <constraint firstItem="1o9-rL-dgs" firstAttribute="leading" secondItem="N6L-un-HBD" secondAttribute="leading" id="bzy-hs-g9e"/>
+                                                    <constraint firstItem="1o9-rL-dgs" firstAttribute="centerY" secondItem="N6L-un-HBD" secondAttribute="centerY" id="sGH-Qx-PL2"/>
+                                                    <constraint firstAttribute="width" constant="375" id="ydX-UN-bEn"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="N6L-un-HBD" secondAttribute="bottom" id="6fB-ZK-g7m"/>
+                                            <constraint firstItem="N6L-un-HBD" firstAttribute="top" secondItem="Wx9-KP-mdr" secondAttribute="top" id="Hwa-dI-Aj2"/>
+                                            <constraint firstItem="T60-b7-YIb" firstAttribute="leading" secondItem="Wx9-KP-mdr" secondAttribute="leading" id="JNi-w7-nkf"/>
+                                            <constraint firstItem="N6L-un-HBD" firstAttribute="leading" secondItem="T60-b7-YIb" secondAttribute="trailing" id="ote-xg-8KD"/>
+                                            <constraint firstAttribute="bottom" secondItem="T60-b7-YIb" secondAttribute="bottom" id="pba-ES-kV5"/>
+                                            <constraint firstItem="T60-b7-YIb" firstAttribute="top" secondItem="Wx9-KP-mdr" secondAttribute="top" id="xPH-ya-BkC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Wx9-KP-mdr" secondAttribute="trailing" id="EaT-cp-OJq"/>
+                                    <constraint firstItem="Wx9-KP-mdr" firstAttribute="centerX" secondItem="tEX-KO-rLz" secondAttribute="centerX" id="Tat-Oj-wsb"/>
+                                    <constraint firstItem="Wx9-KP-mdr" firstAttribute="top" secondItem="tEX-KO-rLz" secondAttribute="top" id="jwU-Ne-Hhr"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wx9-KP-mdr" secondAttribute="bottom" id="llG-4E-qjC"/>
+                                    <constraint firstItem="Wx9-KP-mdr" firstAttribute="leading" secondItem="tEX-KO-rLz" secondAttribute="leading" id="oSV-RU-HPd"/>
+                                    <constraint firstItem="Wx9-KP-mdr" firstAttribute="centerY" secondItem="tEX-KO-rLz" secondAttribute="centerY" id="p6U-Wx-pML"/>
+                                </constraints>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GetStarted" translatesAutoresizingMaskIntoConstraints="NO" id="kUy-Sw-JGF">
+                                <rect key="frame" x="0.0" y="619" width="750" height="48"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="9zr-d0-Krt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kUy-Sw-JGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KsP-aL-F16"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="tEX-KO-rLz" secondAttribute="bottom" constant="48" id="LBg-Ux-EF2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="kUy-Sw-JGF" secondAttribute="bottom" id="ReS-Cb-pyf"/>
+                            <constraint firstItem="tEX-KO-rLz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vo5-sg-y9I"/>
+                            <constraint firstItem="tEX-KO-rLz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WLg-VQ-Hel"/>
+                            <constraint firstAttribute="trailing" secondItem="tEX-KO-rLz" secondAttribute="trailing" id="eXd-1V-CVd"/>
+                            <constraint firstAttribute="trailing" secondItem="kUy-Sw-JGF" secondAttribute="trailing" id="yDt-m9-P4O"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="750" height="667"/>
+                    <connections>
+                        <outlet property="contentView" destination="Wx9-KP-mdr" id="zpy-Bg-daU"/>
+                        <outlet property="introScrollView" destination="tEX-KO-rLz" id="nFY-Ao-4gd"/>
+                        <outlet property="pageAWidthConstraint" destination="ZpT-4k-dsJ" id="0fG-oN-qhg"/>
+                        <outlet property="pageBWidthConstraint" destination="ydX-UN-bEn" id="TtJ-Yq-ruM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="395.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AppointmentsAnimation_01_0" width="375" height="375"/>
+        <image name="AppointmentsAnimation_02_0" width="375" height="375"/>
+        <image name="GetStarted" width="750" height="96"/>
+    </resources>
+</document>
