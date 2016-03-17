@@ -11,7 +11,7 @@ import UIKit
 let CalendarYearViewMonthCellIdentifier = "calendarYearViewMonthCell"
 var selectedIndexPath: NSIndexPath!
 
-class CalendarYearViewController: UIViewController {
+class CalendarYearViewController: UIViewController, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var yearCollectionView: UICollectionView!
@@ -24,6 +24,8 @@ class CalendarYearViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.delegate = self
+        
         yearCollectionView.dataSource = self
         yearCollectionView.delegate = self
         yearCollectionView.registerNib(UINib(nibName: "CalendarYearViewMonthCell", bundle: nil), forCellWithReuseIdentifier: CalendarYearViewMonthCellIdentifier)
@@ -32,7 +34,7 @@ class CalendarYearViewController: UIViewController {
         let itemSpacing: CGFloat = 8.0
         let insetDistance: CGFloat = 20.0
         let itemWidth: CGFloat = (windowWidth - 2 * insetDistance) / 3.0 - itemSpacing
-        flowLayout.sectionInset = UIEdgeInsets(top: insetDistance, left: insetDistance, bottom: insetDistance, right: insetDistance)
+        flowLayout.sectionInset = UIEdgeInsets(top: -20, left: insetDistance, bottom: insetDistance, right: insetDistance)
         flowLayout.itemSize = CGSizeMake(itemWidth, 128.0)
         flowLayout.minimumInteritemSpacing = itemSpacing
         flowLayout.minimumLineSpacing = 0
@@ -46,9 +48,24 @@ class CalendarYearViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         let monthVC = segue.destinationViewController as! CalendarMonthViewController
-        print (selectedIndexPath.item)
         monthVC.selectedMonthIndex = selectedIndexPath.item
     }
+    
+    func navigationController(navigationController: UINavigationController,
+        animationControllerForOperation operation: UINavigationControllerOperation,
+        fromViewController fromVC: UIViewController,
+        toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            
+            
+            let calendarTransition: CalendarTransition! = CalendarTransition()
+            calendarTransition.duration = 0.5
+            calendarTransition.eventRect = yearCollectionView.layoutAttributesForItemAtIndexPath(selectedIndexPath)?.frame
+            if (operation == UINavigationControllerOperation.Pop) {
+                calendarTransition.isPopped = true
+            }
+            return calendarTransition
+    }
+    
 }
 
 extension CalendarYearViewController: UICollectionViewDataSource {

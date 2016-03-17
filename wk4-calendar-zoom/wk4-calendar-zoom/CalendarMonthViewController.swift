@@ -48,7 +48,7 @@ class CalendarMonthViewController: UIViewController {
         
         collectionView.collectionViewLayout.prepareLayout()
         var offsetY: CGFloat = (collectionView.layoutAttributesForSupplementaryElementOfKind(UICollectionElementKindSectionHeader, atIndexPath: NSIndexPath(forItem: 0, inSection: selectedMonthIndex))?.frame.origin.y)!
-        offsetY -= 64.0 // navigation bar height
+        offsetY -= 20.0 // navigation bar height
         collectionView.setContentOffset(CGPoint(x: collectionView.contentOffset.x, y: offsetY), animated: false)
     }
 }

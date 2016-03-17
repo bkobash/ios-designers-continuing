@@ -26,6 +26,8 @@
 		1D8608791C9501E80076A230 /* CalendarYearViewMonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8608711C9501E80076A230 /* CalendarYearViewMonthCell.xib */; };
 		1D86087C1C95021F0076A230 /* CalendarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D86087A1C95021F0076A230 /* CalendarConstants.swift */; };
 		1D86087D1C95021F0076A230 /* CalendarYearViewMonthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D86087B1C95021F0076A230 /* CalendarYearViewMonthDataSource.swift */; };
+		1D8608881C994E360076A230 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8608861C994E360076A230 /* BaseTransition.swift */; };
+		1D8608891C994E360076A230 /* CalendarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8608871C994E360076A230 /* CalendarTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		1D8608711C9501E80076A230 /* CalendarYearViewMonthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarYearViewMonthCell.xib; sourceTree = "<group>"; };
 		1D86087A1C95021F0076A230 /* CalendarConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarConstants.swift; sourceTree = "<group>"; };
 		1D86087B1C95021F0076A230 /* CalendarYearViewMonthDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarYearViewMonthDataSource.swift; sourceTree = "<group>"; };
+		1D8608861C994E360076A230 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
+		1D8608871C994E360076A230 /* CalendarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 		1D8608311C94FDFA0076A230 /* wk4-calendar-zoom */ = {
 			isa = PBXGroup;
 			children = (
+				1D8608861C994E360076A230 /* BaseTransition.swift */,
+				1D8608871C994E360076A230 /* CalendarTransition.swift */,
 				1D8608691C9501A00076A230 /* Views */,
 				1D8608641C9501130076A230 /* DataSource */,
 				1D8608321C94FDFA0076A230 /* AppDelegate.swift */,
@@ -323,6 +329,8 @@
 				1D8608631C94FEB10076A230 /* CalendarMonthViewController.swift in Sources */,
 				1D8608721C9501E80076A230 /* CalendarMonthViewDayCell.swift in Sources */,
 				1D8608611C94FEA10076A230 /* CalendarYearViewController.swift in Sources */,
+				1D8608891C994E360076A230 /* CalendarTransition.swift in Sources */,
+				1D8608881C994E360076A230 /* BaseTransition.swift in Sources */,
 				1D8608331C94FDFA0076A230 /* AppDelegate.swift in Sources */,
 				1D8608761C9501E80076A230 /* CalendarYearViewDayCell.swift in Sources */,
 			);
@@ -551,6 +559,7 @@
 				1D8608591C94FDFB0076A230 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D86085A1C94FDFB0076A230 /* Build configuration list for PBXNativeTarget "wk4-calendar-zoomTests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +568,7 @@
 				1D86085C1C94FDFB0076A230 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D86085D1C94FDFB0076A230 /* Build configuration list for PBXNativeTarget "wk4-calendar-zoomUITests" */ = {
 			isa = XCConfigurationList;
@@ -567,6 +577,7 @@
 				1D86085F1C94FDFB0076A230 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
